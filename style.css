@@ -1,0 +1,131 @@
+/* Airbnb Clone - Custom Styles */
+/* Note: Most styling is handled by Tailwind CSS CDN */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Selection color */
+::selection {
+    background-color: rgba(255, 56, 92, 0.2);
+}
+
+/* Focus styles */
+*:focus-visible {
+    outline: 2px solid #FF385C;
+    outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+button, a, input {
+    transition: all 0.2s ease;
+}
+
+/* Image loading placeholder */
+img {
+    background-color: #f3f4f6;
+}
+
+/* Prevent text selection on interactive elements */
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Animation for property cards */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.property-card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Skeleton loading animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1536px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Print styles */
+@media print {
+    nav, footer, .mobile-menu, #mobileMenuOverlay {
+        display: none !important;
+    }
+    
+    main {
+        padding-top: 20px;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
